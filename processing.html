@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Confirmation</title>
+    <link rel="shortcut icon" href="https://apache.org/icons/unknown.gif" />
+</head>
+<body>
+
+<div style="display: inline;"><span style="display:inline;"><h1 style="white-space: nowrap; display: inline;">Confirm Order</h1><img src="https://apache.org/icons/unknown.gif" alt="?" style="white-space: nowrap; vertical-align: center; display: inline; padding-left: 1.25%;"></span><br><br></div>
+<form action="javascript:submit()" method="post">
+Your name: <input type="text" readonly id="parent_name"><br>
+Your email address is: <input type="email" readonly id="email"><br>
+Your Child's name is: <input type="text" readonly id="child_name"><br>
+Your Child's grade is: <input type="text" readonly id="grade"><br>
+Allergies/food restrictions: <textarea readonly rows="1" id="comment"></textarea><br>
+Does your child want the food provided: <input type="text" readonly id="food"><br>
+How you want your receipt: <input type="text" readonly id="receipt"><br>
+</form>
+<br>
+<p><b>If all of this information looks, correct press "Submit". Otherwise, press "Go Back".</b></p><br>
+
+<input type="submit" value="Submit"><input type="button" value="Go Back" onclick="history.back">
+
+<script>
+    const convertToHexa = (str = '') =>{
+    const res = [];
+    const { length: len } = str;
+    for (let n = 0, l = len; n < l; n ++) {
+       const hex = Number(str.charCodeAt(n)).toString(16);
+       res.push(hex);
+    };
+    return res.join('');
+}
+
+    var fields = location.href.split('?').pop();
+    fields = fields.split('&').slice(0);
+
+    var parentName = fields[0].split("=").pop();
+    parentName = parentName.replace(/\+/g, " ");
+    document.getElementById("parent_name").outerHTML = '<input type="text" readonly id="parent_name" value="'+parentName+'">'
+
+    var email = fields[1].split("=").pop();
+    email = email.replace("%40", "@");
+    document.getElementById("email").outerHTML = '<input type="email" readonly id="email" value="'+email+'">';
+
+    var childName = fields[2].split("=").pop();
+    childName = childName.replace(/\+/g, " ");
+    document.getElementById("child_name").outerHTML = '<input type="text" readonly id="child_name" value="'+childName+'">';
+
+    var grade = fields[3].split("=").pop();
+    grade = grade.replace(/\+/g, " ");
+    document.getElementById("grade").outerHTML = '<input type="text" readonly id="grade" value="'+grade+'">';
+
+    var comments = fields[4].split("=").pop();
+    comments = comments.replace(/%2F/g, "/");
+    comments = comments.replace(/\+/g, " ");
+    document.getElementById("comment").innerHTML = comments;
+
+    var food = fields[5].split("=").pop();
+    food = food.replace(/\+/g, " ");
+    document.getElementById("food").outerHTML = '<input type="text" readonly id="food" value="'+food+'">';
+
+    var receipt = fields[6].split("=").pop();
+    receipt = receipt.replace(/%2C/g, ",");
+    receipt = receipt.replace(/\+/g, " ");
+    document.getElementById("receipt").outerHTML = '<input type="text" readonly id="receipt" value="'+receipt+'">'
+</script>
+
+</body>
+</html>
