@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html lang="en">   
+  <head> 
+    <title>Fun Night Sign-up Form</title>
+    <link rel="shortcut icon" href="https://apache.org/icons/burst.gif" />
+    <!--<link rel="shortcut icon" href="/icons/world1.gif" />
+    <link rel="shortcut icon" href="https://apache.org/icons/alert.red.gif" />-->
+    <meta name="description" content="Sign up for Fun Night hosted by the SMS Adolescents!" />
+    <meta name="og:title" property="og:title" content="Fun Night Sign-up Form" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <style>
+    .alert_colour {
+      color: red;
+    }
+    .span_inline {
+      display: inline;
+    }
+    .pre_font {
+      font-family: serif;
+    }
+    img {
+      vertical-align: middle;
+    }
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      /*font-family: serif;*/
+    }
+    </style>
+    <script type="text/javascript">
+      function submit() {
+      if (document.getElementById('select_food').value == "yes") {
+        location.replace("https://www.salemmontessori.org");
+      } else if (document.getElementById('select_food').value == "no") {
+        location.replace("https://www.google.com");
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Fun Night Sign-up Form</h1>
+    <h3 id="info">Description Here</h3>
+    <div class="span_inline">
+      <span class="span_inline">
+        <img src="https://apache.org/icons/alert.red.gif" alt="**" />
+        <p class="alert_colour span_inline"> Required</p>
+      </span>
+    </div>
+    <hr>
+    <form method="get" id="myForm" action="https://wackyblackie.github.io/wackyblackie/processing.html"> 
+      <div class="span_inline">
+        <p class="span_inline">Your Name (first and last): </p>
+        <span class="span_inline">
+          <input id="parent_name" type="text" name="parent_name" class="span_inline" required> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"/> 
+          <pre class="alert_colour span_inline pre_font" id="nameError"></pre>
+        </span>
+        <!--<p class="alert_colour span_inline"> *</p>-->
+      </div>
+      <br><hr>
+      <div class="span_inline">
+        <p class="span_inline">Your Email: </p>
+        <span class="span_inline">
+          <input id="email" type="email" name="email" class="span_inline" required>
+          <!--Or Phone Number: <input id="phonenumber" type="tel" name="Phone" class="span_inline">--> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"> 
+          <pre class="alert_colour span_inline pre_font" id="emailError"></pre>
+        </span>
+        <!--<p class="alert_colour span_inline"> *</p>-->
+      </div>
+      <br><hr>
+      <div class="span_inline">
+        <p class="span_inline">Your child's Name: </p>
+        <span class="span_inline">
+          <input id="child_name" type="text" name="child_name" class="span_inline" required> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"> 
+          <pre class="alert_colour span_inline pre_font" id="childNameError"></pre>
+        </span>
+        <!--<p class="alert_colour span_inline"> *</p>-->
+      </div>
+      <br><hr>
+      <div class="span_inline">
+        <p class="span_inline">Child's Grade: </p>
+        <span class="span_inline">
+          <select name="select_grade" id="select_grade" class="span_inline" required>
+            <option value="">Select Grade</option>
+            <option value="First Grade">First Grade</option>
+            <option value="Second Grade">Second Grade</option>
+            <option value="Third Grade">Third Grade</option>
+            <option value="Fourth Grade">Fourth Grade</option>
+            <option value="Fifth Grade">Fifth Grade</option>
+            <option value="Sixth Grade">Sixth Grade</option>
+          </select> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"> 
+          <pre class="alert_colour span_inline pre_font" id="gradeError"></pre>
+        </span>
+        <!--<p class="alert_colour span_inline"> *</p>-->
+      </div>
+      <br><hr>
+      <div>
+        <p>Does your child have any allergies/food restrictions? If so, describe them below, separated by commas.</p>
+        <textarea cols="80" rows="3" name="comment" id="comments"></textarea>
+      </div>
+      <hr>
+      <div class="span_inline">
+        <p class="span_inline">Does your child want the food provided? </p>
+        <span class="span_inline">
+          <select id="select_food" name="select_food" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"> 
+          <pre class="alert_colour span_inline pre_font" id="foodSelectionError"></pre>
+        </span>
+      </div>
+      <br><hr>
+      <div class="span_inline">
+        <p class="span_inline">Would you like a receipt? </p>
+        <span class="span_inline">
+          <select id="select_receipt" name="select_receipt" class="span_inline" required>
+            <option value="">Select</option>
+            <option value="Yes, emailed">Yes, emailed</option>
+            <!--<option value="text">Yes, texted</option>-->
+            <option value="Yes, paper">Yes, paper</option>
+            <option value="No">No</option>
+          </select> 
+          <img src="https://apache.org/icons/alert.red.gif" alt="**" class="alert_colour span_inline"> 
+          <pre class="alert_colour span_inline pre_font" id="receiptSelectionError"></pre>
+        </span>
+      </div>
+      <br><hr>
+      <div class="span_inline">
+        <input type="submit" value="Review & Submit"> 
+        <!--<input type="button" name="Reset" value="Reset Form" id="reset-form" onclick="document.getElementById('myForm').reset()">-->
+      </div>
+    </form>
+  </body> 
+</html>
